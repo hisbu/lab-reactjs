@@ -2,11 +2,41 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 // import Button from './component/button' ==> untuk export default di komponent
-import {Button, InputComponent} from './component/button' // ==> export beberapa komponen dalam 1 file komponent
-import ClassComp from './component/latihan'
-import bebas from './component/childrenProps'
+// import {Button, InputComponent} from './component/button' // ==> export beberapa komponen dalam 1 file komponent
+// import ClassComp from './component/latihan'
+// import bebas from './component/childrenProps'
+import Todo from './todo'
+import { Route } from 'react-router-dom'
+import Header from './component/header'
+import ReduxPage from './reduxPage'
+import WordCount from './component/wordcount'
+import Wilayah from './component/apiWIlayah'
 
-let buah=['apel',' mangga',' anggur']
+function Home(){
+  return(
+    <div>
+      <center>
+      
+      <h1>Home</h1>
+     
+      
+      </center>
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// let buah=['apel',' mangga',' anggur']
 
 class App extends React.Component {
   state={
@@ -19,49 +49,35 @@ class App extends React.Component {
 
   componentWillMount(){
     //Ke triger sebelum render pertama
-    console.log('Ini willmount')
+    // console.log('Ini willmount')
   }
 
   componentDidMount(){
     //ke triger setelah render pertama
-    console.log('Ini Didmount')
+    // console.log('Ini Didmount')
 
   }
 
   componentWillUpdate(){
     //ke triger setelah ada perubahan state, sebelum re render
-    console.log('ini willupdate')
+    // console.log('ini willupdate')
   }
 
   componentDidUpdate(){
     //ke triger seltelah ada perubahan state, setelah re render
-    console.log('ini DidUpdate')
+    // console.log('ini DidUpdate')
   }
   render(){
-    console.log('ini render')
+    // console.log('ini render')
     
     return (
       <div >
-        <h1>{this.state.todo[0]}</h1>
-        <input type="text" placeholder="Masukan todo" ref='todo'/>
-        <input type="button" value='add' onClick={this.onBtnAddClick}/>
-
-
-        {/* <h1>Hello world</h1>
-        <Button/><br/>
-        <InputComponent/>
-        <ClassComp kata='coba saja'/>
-        <ClassComp kata='siaaap'/>
-        <ClassComp kata={buah}/>
-        <ClassComp>
-          ini props dari ClassComp
-        </ClassComp>
-        {this.props.nama}
-        <bebas>
-         <br></br> ini props dari children
-        </bebas>
-        <bebas anak='coba saja'/> */}
-        
+        <Header/>
+        <Route path='/todo' component={Todo}/>
+        <Route path='/' component={Home} exact/>
+        <Route path='/reduxpage' component={ReduxPage}/>
+        <Route path='/wordcount' component={WordCount}/>
+        <Route path='/wilayah' component={Wilayah}/>
       </div>
     );
 

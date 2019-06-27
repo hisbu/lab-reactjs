@@ -2,13 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Todo from './todo'
+// import Todo from './todo'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter} from 'react-router-dom'
+import App from './App';
+import Reducer from './redux/reducers'
+import { createStore} from 'redux'
+import { Provider }from 'react-redux'
 
+const Nilai = createStore(Reducer)
 // var nama='steve';
 
-ReactDOM.render(<Todo/>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={Nilai}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </Provider>
+    , document.getElementById('root'));
 
 
 
